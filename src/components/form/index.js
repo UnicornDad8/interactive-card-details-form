@@ -34,6 +34,7 @@ function Form() {
     }
     setYear(e.target.value);
   };
+
   const onFormSubmit = (e) => {
     let checkField = false;
     const inputCard = document.getElementById("cardInput");
@@ -43,67 +44,72 @@ function Form() {
     const inputCvc = document.getElementById("cvcInput");
     const formEl = document.getElementById("form");
     const completeEl = document.getElementById("complete");
+
     if (name.length <= 0) {
       setNameError("Can't be blank");
-      inputName.classList.add("");
+      inputName.classList.add("border-error-red");
       checkField = true;
     } else {
       setNameError("");
-      inputName.classList.remove("");
+      inputName.classList.remove("border-error-red");
       checkField = false;
     }
 
     if (creditNumber.length <= 0) {
       setCardError("Can't be blank");
-      inputCard.classList.add("");
+      inputCard.classList.add("border-error-red");
       return (checkField = true);
     } else if (creditNumber.length !== 19) {
       setCardError("Card number must be a 16 digit number.");
-      inputCard.classList.add("");
+      inputCard.classList.add("border-error-red");
       return (checkField = true);
     } else {
       setCardError("");
-      inputCard.classList.remove("");
+      inputCard.classList.remove("border-error-red");
       checkField = false;
     }
 
     if (month.length <= 0) {
       setDateError("Can't be blank");
-      inputMonth.classList.add("");
+      inputMonth.classList.add("border-error-red");
       checkField = true;
     } else if (month.valueOf == "0") {
       setDateError("Month cannot be 0");
       checkField = true;
     } else {
       setDateError("");
-      inputYear.classList.remove("");
-      inputMonth.classList.remove("");
+      inputYear.classList.remove("border-error-red");
+      inputMonth.classList.remove("border-error-red");
       checkField = false;
     }
+
     if (year.length <= 0) {
       setDateError("Can't be blank");
-      inputYear.classList.add("");
+      inputYear.classList.add("border-error-red");
       checkField = true;
     } else {
       setDateError("");
-      inputYear.classList.remove("");
+      inputYear.classList.remove("border-error-red");
       checkField = false;
     }
+
     if (cvc.length <= 0) {
       setCvcError("Can't be blank");
-      inputCvc.classList.add("");
+      inputCvc.classList.add("border-error-red");
       checkField = true;
     } else {
-      inputCvc.classList.remove("");
+      inputCvc.classList.remove("border-error-red");
       setCvcError("");
       checkField = false;
     }
+
     if (!checkField) {
       formEl.classList.add("hidden");
       completeEl.classList.remove("hidden");
       completeEl.classList.add("flex");
     }
   };
+
   const onContinue = () => {
     setCardError("");
     setCreditNumber("");
@@ -120,6 +126,7 @@ function Form() {
     completeEl.classList.add("hidden");
     completeEl.classList.remove("flex");
   };
+
   return (
     <main
       className={`flex flex-col h-screen w-screen ${grotesk.className} overflow-hidden lg:flex-row`}
@@ -152,12 +159,23 @@ function Form() {
           </div>
         </div>
       </div>
-      <div>
-        <div id="complete" className="hidden">
-          <img src="/icon-complete.svg" alt="complete" />
-          <h1>Thank you!</h1>
-          <p>We've added your card details</p>
-          <button type="submit" onClick={() => onContinue()}>
+      <div className="flex flex-col justify-center w-full h-full lg:items-center">
+        <div
+          id="complete"
+          className="flex-col items-center self-center justify-center hidden space-y-6 w-96 h-96"
+        >
+          <img src="/icon-complete.svg" alt="complete" className="w-28 h-28" />
+          <h1 className="text-2xl font-bold tracking-widest text-center uppercase text-very-dark-violet">
+            Thank you!
+          </h1>
+          <p className="text-center text-dark-grayish-violet">
+            We've added your card details
+          </p>
+          <button
+            type="submit"
+            className="w-full text-lg text-white rounded-lg h-14 bg-very-dark-violet lg:w-96"
+            onClick={() => onContinue()}
+          >
             Continue
           </button>
         </div>
