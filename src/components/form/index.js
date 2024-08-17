@@ -133,7 +133,7 @@ function Form() {
     >
       <div className="flex flex-col h-[40%] bg-cover bg-main-desktop bg-no-repeat lg:w-1/3 lg:h-full">
         <div className="flex flex-col items-center justify-start h-full p-4 space-y-4 lg:justify-center lg:items-start">
-          <div className="absolute rounded-lg bg-contain bg-no-repeat bg-card-front w-[300px] h-44 z-10 mt-[15%] lg:h-64 lg:relative lg:w-[450px] lg:ml-12">
+          <div className="absolute rounded-lg bg-contain bg-no-repeat bg-card-front w-[300px] h-44 z-10 mt-28 lg:mt-[13%] lg:h-64 lg:relative lg:w-[450px] lg:ml-12">
             <img
               src="/card-logo.svg"
               alt="logo"
@@ -162,7 +162,7 @@ function Form() {
       <div className="flex flex-col justify-center w-full h-full lg:items-center">
         <div
           id="complete"
-          className="flex-col items-center self-center justify-center hidden space-y-6 w-96 h-96"
+          className="flex-col items-center self-center justify-center hidden space-y-6 mt-28 lg:mt-0 w-96 h-96"
         >
           <img src="/icon-complete.svg" alt="complete" className="w-28 h-28" />
           <h1 className="text-2xl font-bold tracking-widest text-center uppercase text-very-dark-violet">
@@ -179,23 +179,36 @@ function Form() {
             Continue
           </button>
         </div>
-        <div id="form">
-          <div>
-            <span>CARDHOLDER NAME</span>
+        <div
+          id="form"
+          className="mt-28 lg:mt-0 flex flex-col gap-4 self-center w-[80%] lg:items-center"
+        >
+          <div className="flex flex-col">
+            <span className="tracking-wide text-very-dark-violet">
+              CARDHOLDER NAME
+            </span>
             <input
               value={name}
               id="nameInput"
+              className="w-auto h-12 p-4 border rounded-lg focus:outline-none focus:ring-1 focus:ring-linear-purple focus:border-transparent text-very-dark-violet lg:w-96"
               placeholder="e.g. Jane Appleseed"
               onChange={(e) => setName(e.target.value)}
             />
-            <span id="error" aria-live="polite">
+            <span
+              id="error"
+              aria-live="polite"
+              className="mt-2 text-xs font-bold text-error-red"
+            >
               {nameError ?? nameError}
             </span>
           </div>
-          <div>
-            <span>CARD NUMBER</span>
+          <div className="flex flex-col">
+            <span className="tracking-wide text-very-dark-violet">
+              CARD NUMBER
+            </span>
             <input
               id="cardInput"
+              className="w-auto h-12 p-4 border rounded-lg focus:outline-none focus:ring-1 focus:ring-linear-purple focus:border-transparent text-very-dark-violet lg:w-96"
               placeholder="e.g. 1234 5678 9123 0000"
               type="text"
               maxLength="19"
@@ -208,18 +221,27 @@ function Form() {
                 }
               }}
             />
-            <span id="error" aria-live="polite">
+            <span
+              id="error"
+              aria-live="polite"
+              className="mt-2 text-xs font-bold text-error-red"
+            >
               {cardError ?? cardError}
             </span>
           </div>
-          <div>
-            <span>EXP. DATE (MM/YY)</span>
-            <span>CVC</span>
-            <div>
+          <div className="space-y-2">
+            <span className="tracking-widest text-very-dark-violet">
+              EXP. DATE (MM/YY)
+            </span>
+            <span className="ml-4 tracking-wide text-very-dark-violet lg:ml-6">
+              CVC
+            </span>
+            <div className="flex flex-row gap-2 w-96">
               <div>
-                <div>
+                <div className="flex flex-row space-x-3">
                   <input
                     id="monthInput"
+                    className="w-20 h-12 p-4 border rounded-lg focus:outline-none focus:ring-1 focus:ring-linear-purple focus:border-transparent text-very-dark-violet"
                     placeholder="MM"
                     inputMode="numeric"
                     required
@@ -234,6 +256,7 @@ function Form() {
                   />
                   <input
                     id="yearInput"
+                    className="w-20 h-12 p-4 mr-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-linear-purple focus:border-transparent text-very-dark-violet lg:mr-4"
                     placeholder="YY"
                     maxLength={2}
                     inputMode="numeric"
@@ -246,7 +269,11 @@ function Form() {
                     }}
                   />
                 </div>
-                <span id="error" aria-live="polite">
+                <span
+                  id="error"
+                  aria-live="polite"
+                  className="relative mt-2 text-xs font-bold text-error-red"
+                >
                   {dateError ?? dateError}
                 </span>
               </div>
@@ -254,13 +281,18 @@ function Form() {
               <div>
                 <input
                   id="cvcInput"
+                  className="w-48 h-12 p-4 border rounded-lg focus:outline-none focus:ring-1 focus:ring-linear-purple focus:border-transparent text-very-dark-violet"
                   placeholder="e.g. 123"
                   maxLength={3}
                   inputMode="numeric"
                   onChange={(e) => setCvc(e.target.value)}
                   value={cvc}
                 />
-                <span id="error" aria-live="polite">
+                <span
+                  id="error"
+                  aria-live="polite"
+                  className="mt-2 text-xs font-bold text-error-red"
+                >
                   {cvcError ?? cvcError}
                 </span>
               </div>
