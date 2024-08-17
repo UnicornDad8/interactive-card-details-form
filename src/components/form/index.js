@@ -3,6 +3,7 @@ import { Space_Grotesk } from "next/font/google";
 import { useState } from "react";
 
 const grotesk = Space_Grotesk({ subsets: ["latin"] });
+
 function Form() {
   const [creditNumber, setCreditNumber] = useState("");
   const [month, setMonth] = useState("");
@@ -98,9 +99,9 @@ function Form() {
       checkField = false;
     }
     if (!checkField) {
-      formEl.classList.add("");
-      completeEl.classList.remove("");
-      completeEl.classList.add("");
+      formEl.classList.add("hidden");
+      completeEl.classList.remove("hidden");
+      completeEl.classList.add("flex");
     }
   };
   const onContinue = () => {
@@ -115,13 +116,15 @@ function Form() {
     setNameError("");
     const formEl = document.getElementById("form");
     const completeEl = document.getElementById("complete");
-    formEl.classList.remove("");
-    completeEl.classList.add("");
-    completeEl.classList.remove("");
+    formEl.classList.remove("hidden");
+    completeEl.classList.add("hidden");
+    completeEl.classList.remove("flex");
   };
   return (
-    <main>
-      <div>
+    <main
+      className={`flex flex-col h-screen w-screen ${grotesk.className} overflow-hidden lg:flex-row`}
+    >
+      <div className="flex flex-col h-[40%] bg-cover bg-main-desktop bg-no-repeat lg:w-1/3 lg:h-full">
         <div>
           <div>
             <img src="/card-logo.svg" alt="logo" />
@@ -142,7 +145,7 @@ function Form() {
         </div>
       </div>
       <div>
-        <div id="complete">
+        <div id="complete" className="hidden">
           <img src="/icon-complete.svg" alt="complete" />
           <h1>Thank you!</h1>
           <p>We've added your card details</p>
