@@ -125,15 +125,21 @@ function Form() {
       className={`flex flex-col h-screen w-screen ${grotesk.className} overflow-hidden lg:flex-row`}
     >
       <div className="flex flex-col h-[40%] bg-cover bg-main-desktop bg-no-repeat lg:w-1/3 lg:h-full">
-        <div>
-          <div>
-            <img src="/card-logo.svg" alt="logo" />
-            <p>
+        <div className="flex flex-col items-center justify-start h-full p-4 space-y-4 lg:justify-center lg:items-start">
+          <div className="absolute rounded-lg bg-contain bg-no-repeat bg-card-front w-[300px] h-44 z-10 mt-28 lg:h-64 lg:relative lg:w-[450px] lg:ml-12">
+            <img
+              src="/card-logo.svg"
+              alt="logo"
+              className="w-24 p-6 h-22 lg:w-36 lg:h-26 lg:p-8 opacity-90"
+            />
+            <p className="pb-6 pl-6 text-lg font-medium tracking-widest text-white opacity-90 lg:text-2xl lg:pt-8 lg:pl-8">
               {creditNumber.length > 0 ? creditNumber : "0000 0000 0000 0000"}
             </p>
-            <section>
-              <p>{name ? name : "Jane Appleseed"}</p>
-              <p>
+            <section className="flex justify-between px-6 lg:px-8">
+              <p className="text-sm font-thin text-white uppercase lg:text-md opacity-90">
+                {name ? name : "Jane Appleseed"}
+              </p>
+              <p className="text-sm font-thin text-white lg:text-md opacity-90">
                 {month.length > 0 ? month : "MM"}/
                 {year.length > 0 ? year : "YY"}
               </p>
