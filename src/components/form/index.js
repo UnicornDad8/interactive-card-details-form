@@ -280,7 +280,7 @@ function Form() {
             >
               Frontend Mentor
             </a>
-            . Coded by <a href="#">Emre Kalfa</a>.
+            . Coded by <a href="#">Ceci Benitez</a>.
           </div>
         </footer>
       </div>
