@@ -126,7 +126,7 @@ function Form() {
     >
       <div className="flex flex-col h-[40%] bg-cover bg-main-desktop bg-no-repeat lg:w-1/3 lg:h-full">
         <div className="flex flex-col items-center justify-start h-full p-4 space-y-4 lg:justify-center lg:items-start">
-          <div className="absolute rounded-lg bg-contain bg-no-repeat bg-card-front w-[300px] h-44 z-10 mt-28 lg:h-64 lg:relative lg:w-[450px] lg:ml-12">
+          <div className="absolute rounded-lg bg-contain bg-no-repeat bg-card-front w-[300px] h-44 z-10 mt-[15%] lg:h-64 lg:relative lg:w-[450px] lg:ml-12">
             <img
               src="/card-logo.svg"
               alt="logo"
@@ -145,8 +145,10 @@ function Form() {
               </p>
             </section>
           </div>
-          <div>
-            <p>{cvc.length > 0 ? cvc : "000"}</p>
+          <div className="absolute rounded-lg bg-contain bg-no-repeat bg-card-back w-[300px] h-44 ml-14 lg:h-64 lg:relative lg:w-[450px] lg:ml-32">
+            <p className="absolute text-sm right-10 top-[4.5rem] text-white lg:right-14 lg:top-[6.8rem] lg:text-md opacity-90">
+              {cvc.length > 0 ? cvc : "000"}
+            </p>
           </div>
         </div>
       </div>
