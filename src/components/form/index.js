@@ -129,11 +129,11 @@ function Form() {
 
   return (
     <main
-      className={`flex flex-col h-screen w-screen ${grotesk.className} overflow-hidden lg:flex-row`}
+      className={`w-screen flex flex-col h-auto lg:h-screen ${grotesk.className} overflow-hidden lg:flex-row`}
     >
-      <div className="flex flex-col h-[40%] bg-cover bg-main-desktop bg-no-repeat lg:w-1/3 lg:h-full">
+      <div className="flex flex-col h-[220px] bg-cover bg-main-desktop bg-no-repeat lg:w-1/3 lg:h-full">
         <div className="flex flex-col items-center justify-start h-full p-4 space-y-4 lg:justify-center lg:items-start">
-          <div className="absolute rounded-lg bg-contain bg-no-repeat bg-card-front w-[300px] h-44 z-10 mt-28 lg:mt-[13%] lg:h-64 lg:relative lg:w-[450px] lg:ml-12">
+          <div className="absolute rounded-lg bg-contain bg-no-repeat bg-card-front w-[300px] h-44 z-10 mt-[25%] lg:mt-[13%] lg:h-64 lg:relative lg:w-[450px] lg:ml-12">
             <img
               src="/card-logo.svg"
               alt="logo"
@@ -152,17 +152,17 @@ function Form() {
               </p>
             </section>
           </div>
-          <div className="absolute rounded-lg bg-contain bg-no-repeat bg-card-back w-[300px] h-44 ml-14 lg:h-64 lg:relative lg:w-[450px] lg:ml-32">
+          <div className="absolute top-[2%] rounded-lg bg-contain bg-no-repeat bg-card-back w-[300px] h-44 ml-14 lg:h-64 lg:relative lg:w-[450px] lg:ml-32">
             <p className="absolute text-sm right-10 top-[4.5rem] text-white lg:right-14 lg:top-[6.8rem] lg:text-md opacity-90">
               {cvc.length > 0 ? cvc : "000"}
             </p>
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-center w-full h-full lg:items-center">
+      <div className="flex flex-col justify-center w-full h-full mt-16 lg:mt-0 lg:items-center">
         <div
           id="complete"
-          className="flex-col items-center self-center justify-center hidden space-y-6 mt-28 lg:mt-0 w-96 h-96"
+          className="flex-col items-center self-center justify-center hidden p-4 mt-16 space-y-6 md:p-0 lg:mt-0 w-96 h-96"
         >
           <img src="/icon-complete.svg" alt="complete" className="w-28 h-28" />
           <h1 className="text-2xl font-bold tracking-widest text-center uppercase text-very-dark-violet">
@@ -173,7 +173,7 @@ function Form() {
           </p>
           <button
             type="submit"
-            className="w-full text-lg text-white rounded-lg h-14 bg-very-dark-violet lg:w-96"
+            className="w-[80%] mx-auto text-lg text-white opacity-90 rounded-lg h-14 bg-very-dark-violet lg:w-96"
             onClick={() => onContinue()}
           >
             Continue
@@ -181,7 +181,7 @@ function Form() {
         </div>
         <div
           id="form"
-          className="mt-28 lg:mt-0 flex flex-col gap-4 self-center w-[80%] lg:items-center"
+          className="p-4 md:p-0 flex flex-col gap-4 self-center w-[80%] lg:items-center"
         >
           <div className="flex flex-col">
             <span className="tracking-wide text-very-dark-violet">
@@ -298,12 +298,16 @@ function Form() {
               </div>
             </div>
           </div>
-          <button type="submit" onClick={(e) => onFormSubmit(e)}>
+          <button
+            type="submit"
+            onClick={(e) => onFormSubmit(e)}
+            className="w-auto text-lg text-white rounded-lg opacity-90 h-14 bg-very-dark-violet lg:w-96"
+          >
             Confirm
           </button>
         </div>
 
-        <footer>
+        <footer className="mt-6 text-center">
           <div>
             Challenge by{" "}
             <a

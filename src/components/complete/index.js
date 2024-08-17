@@ -12,7 +12,7 @@ function Form() {
           "flex flex-col h-[40%] bg-cover bg-main-desktop bg-no-repeat lg:w-1/3 lg:h-full"
         }
       >
-        <footer className="relative bottom-0 flex justify-center mt-48 mb-4 text-xs lg:absolute lg:mt-0">
+        <footer className="relative bottom-0 flex justify-center text-xs text-center lg:absolute lg:mt-0">
           <div>
             Challenge by{" "}
             <a
